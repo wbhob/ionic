@@ -9,7 +9,7 @@ import * as runSequence from 'run-sequence';
 import { argv } from 'yargs';
 
 
-import { ES_2015, PROJECT_ROOT, SRC_ROOT, SRC_COMPONENTS_ROOT, SCRIPTS_ROOT } from '../constants';
+import { ES5, ES_2015, PROJECT_ROOT, SRC_ROOT, SRC_COMPONENTS_ROOT, SCRIPTS_ROOT } from '../constants';
 import { createTempTsConfig, createTimestamp, getFolderInfo, readFileAsync, runAppScriptsBuild, writeFileAsync, writePolyfills } from '../util';
 
 import * as pAll from 'p-all';
@@ -124,7 +124,7 @@ function buildTest(filePath: string) {
   const pathToWriteFile = join(distTestRoot, 'tsconfig.json');
   const pathToReadFile = join(PROJECT_ROOT, 'tsconfig.json');
 
-  createTempTsConfig(includeGlob, ES_2015, ES_2015, pathToReadFile, pathToWriteFile, { removeComments: true});
+  createTempTsConfig(includeGlob, ES5, ES_2015, pathToReadFile, pathToWriteFile, { removeComments: true});
 
   const sassConfigPath = join('scripts', 'e2e', 'sass.config.js');
   const copyConfigPath = join('scripts', 'e2e', 'copy.config.js');

@@ -78,6 +78,7 @@ export function createWorker(msg: MessageToWorker): any {
     // TODO, use prod once we're a little more settled
     if (!msg.isDev) {
       scriptArgs.push('--aot');
+      scriptArgs.push('--optimizejs');
     }
 
     if (msg.debug) {
